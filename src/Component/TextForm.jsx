@@ -34,7 +34,7 @@ const TextForm = (props) => {
         className="container"
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
-        <h1>{props.heading}</h1>
+        <h1 className="mb-4">{props.heading}</h1>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -48,16 +48,16 @@ const TextForm = (props) => {
             value={Text}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+        <button disabled={Text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-warning mx-1" onClick={handleLoClick}>
+        <button disabled={Text.length===0} className="btn btn-warning mx-1 my-1" onClick={handleLoClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-danger mx-1" onClick={handleClClick}>
+        <button disabled={Text.length===0} className="btn btn-danger mx-1 my-1" onClick={handleClClick}>
           Clear Text
         </button>
-        <button className="btn btn-success mx-1" onClick={handleCopy}>
+        <button disabled={Text.length===0} className="btn btn-success mx-1 my-1" onClick={handleCopy}>
           Copy Text
         </button>
       </div>
@@ -67,14 +67,23 @@ const TextForm = (props) => {
       >
         <h2>Your Text Summary</h2>
         <p>
-          {Text.split(" ").length - 1} words and {Text.length} characters
+          {
+            Text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          } words and {Text.length} characters
         </p>
-        <p>{0.008 * Text.split(" ").length} Minutes to read</p>
+        <p>
+          {0.008 *
+            Text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length} Minutes to read
+        </p>
         <h2>Preview</h2>
         <p>
           {Text.length > 0
             ? Text
-            : "Enter some text in the above box to preview her."}
+            : "Nothing to preview."}
         </p>
       </div>
     </>

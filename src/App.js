@@ -4,13 +4,7 @@ import Navbar from "./Component/Navbar";
 import TextForm from "./Component/TextForm";
 import Alert from "./Component/Alert";
 import About from "./Component/About";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   // All states
@@ -32,12 +26,12 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#23272F";
       showAlert("Dark mode has been enabled!", "success");
-      document.title = "TextUtil - Dark Mode";
+      // document.title = "TextUtil - Dark Mode";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "#FFFFFF";
       showAlert("Light mode has been enabled!", "success");
-      document.title = "TextUtil - Light Mode";
+      // document.title = "TextUtil - Light Mode";
     }
   };
 
@@ -46,21 +40,22 @@ function App() {
       {/* <Navbar title='TextUtil' aboutText='About Us'/> */}
       {/* <Navbar/> */}
       <BrowserRouter>
-        <Navbar title="TextUtil" mode={mode} toggleMode={toggleMode} />
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-2">
           <Routes>
-            <Route exact
+            <Route
+              exact
               path="/"
               element={
                 <TextForm
                   showAlert={showAlert}
-                  heading="Enter the text to analyze"
+                  heading="TextUtils - Word counter - Character counter - Text copier"
                   mode={mode}
                 />
               }
             />
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode} />} />
           </Routes>
         </div>
       </BrowserRouter>

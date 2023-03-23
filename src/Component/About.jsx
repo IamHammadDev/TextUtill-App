@@ -1,32 +1,41 @@
 import React, { useState } from "react";
 
-const About = () => {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-  let toggleStyle = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Dark Mode");
-    }
+const About = (props) => {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "#23272F",
+    backgroundColor: props.mode === "dark" ? "#23272F" : "white",
+    border: "2px solid",
+    borderColor: props.mode === "dark" ? "white" : "#23272F",
   };
+  let about = {
+    color: props.mode === "dark" ? "white" : "black",
+  };
+  // const [btnText, setBtnText] = useState("Enable Dark Mode");
+  // let toggleStyle = () => {
+  //   if (myStyle.color === "black") {
+  //     setMyStyle({
+  //       color: "white",
+  //       backgroundColor: "black",
+  //       border: "1px solid white",
+  //     });
+  //     setBtnText("Enable Light Mode");
+  //   } else {
+  //     setMyStyle({
+  //       color: "black",
+  //       backgroundColor: "white",
+  //     });
+  //     setBtnText("Enable Dark Mode");
+  //   }
+  // };
 
   return (
     <>
-      <div className="container" style={myStyle}>
-        <h1 className="my-3">About Us</h1>
+      <div className="container">
+        <h1 className="my-3" style={about}>About Us</h1>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
@@ -39,7 +48,7 @@ const About = () => {
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                Accordion Item #1
+                <strong>Analyze Your Text</strong>
               </button>
             </h2>
             <div
@@ -49,15 +58,9 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Text analysis (TA) is a machine learning technique used to
+                automatically extract valuable insights from unstructured text
+                data. Companies use text analysis ...
               </div>
             </div>
           </div>
@@ -72,7 +75,7 @@ const About = () => {
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                Accordion Item #2
+                <strong>Free to use</strong>
               </button>
             </h2>
             <div
@@ -82,15 +85,12 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                All content (e.g. images, videos, music) on Pixabay can be used
+                for free for commercial and noncommercial use across print and
+                digital, except in the cases mentioned in "What is not allowed".
+                Attribution is not required. Giving credit to the artist or
+                Pixabay is not necessary but is always appreciated by our
+                community.
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ const About = () => {
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                Accordion Item #3
+                <strong>Browser Compatible</strong>
               </button>
             </h2>
             <div
@@ -115,20 +115,15 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Get answers faster than ever. Chrome is a fast, secure browser
+                for all your devices. Add apps, extensions, and themes to
+                personalize your Chrome browser. Install Now. One browser, all
+                devices. Type less with autofill. Designed to keep you safe
               </div>
             </div>
           </div>
         </div>
-        <div className="container my-3">
+        {/* <div className="container my-3">
           <button
             type="button"
             className="btn btn-warning"
@@ -136,7 +131,7 @@ const About = () => {
           >
             {btnText}
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );
