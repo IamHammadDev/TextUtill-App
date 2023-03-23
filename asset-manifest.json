@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TextUtill-App/static/css/main.e6c13ad2.css",
+    "main.js": "/TextUtill-App/static/js/main.7955522b.js",
+    "static/js/787.fade2e9e.chunk.js": "/TextUtill-App/static/js/787.fade2e9e.chunk.js",
+    "index.html": "/TextUtill-App/index.html",
+    "main.e6c13ad2.css.map": "/TextUtill-App/static/css/main.e6c13ad2.css.map",
+    "main.7955522b.js.map": "/TextUtill-App/static/js/main.7955522b.js.map",
+    "787.fade2e9e.chunk.js.map": "/TextUtill-App/static/js/787.fade2e9e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.7955522b.js"
+  ]
+}
