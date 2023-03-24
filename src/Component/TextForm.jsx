@@ -68,7 +68,7 @@ const TextForm = (props) => {
         <h2>Your Text Summary</h2>
         <p>
           {
-            Text.split(" ").filter((element) => {
+            Text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           } words and {Text.length} characters
